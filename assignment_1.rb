@@ -26,9 +26,9 @@ str.concat(string_2)
 puts "Output=> #{str}"
 
 puts "Q6 Concatenated string, change from 'I' to 'We' and make capital case2"
-str['i']='we'
-str.gsub(/I/, 'we')
-str.gsub('am', 'are')
+str=str['i']='we'
+str=str.gsub(/I/, 'we')
+str=str.gsub('am', 'are')
 puts "Output=> #{str.capitalize}"
 
 puts "Q7 Convert string_1 to symbol"

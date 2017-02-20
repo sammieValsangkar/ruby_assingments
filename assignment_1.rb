@@ -21,10 +21,15 @@ puts "Q4 Split string_2 by '?'"
 puts "Output=> #{string_2.split('?')}"
 
 puts "Q5 Concat string_1 and string_2"
-puts "Output=> #{string_1<<string_2}"
+str=string_1
+str.concat(string_2)
+puts "Output=> #{str}"
 
 puts "Q6 Concatenated string, change from 'I' to 'We' and make capital case2"
-puts "Output=> #{string_1.gsub(/I|i/, 'we').gsub('am', 'are').capitalize}"
+str['i']='we'
+str.gsub(/I/, 'we')
+str.gsub('am', 'are')
+puts "Output=> #{str.capitalize}"
 
 puts "Q7 Convert string_1 to symbol"
 puts "Output=> #{:string_1.class}"

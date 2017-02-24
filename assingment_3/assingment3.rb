@@ -9,9 +9,7 @@ $ProductFile='product.csv'
 $ProductProperties=['id','name','price','qty','company']
 
 
-class Main
-end
-
+class Store
   def shopkeepers_dashboard
     shopkeeper =Shopkeeper.new()
     loop do
@@ -54,18 +52,22 @@ end
     end
   end
 
-  Product.test
-  UserInteractions.show_options
-  loop do
-    choice=gets.chomp.to_i
-    case choice
-      when 1
-        shopkeepers_dashboard
-      when 2
-          users_dashboard
+  def launch
+    UserInteractions.show_options
+    loop do
+      choice=gets.chomp.to_i
+      case choice
+        when 1
+          shopkeepers_dashboard
+        when 2
+            users_dashboard
+      end
     end
   end
+end
 
+s=Store.new
+s.launch
 # There should be option for exit
 # What File.write(file_name, s) doin in  hash_to_csv
 # No need of global variables

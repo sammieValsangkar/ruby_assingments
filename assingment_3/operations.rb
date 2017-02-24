@@ -15,4 +15,9 @@ class Operations
     end
     puts hash_name
   end
+  def self.save_order(arr)
+    CSV.open($order_file, "wb") do |csv|
+      csv << arr
+    end
+  end
 end

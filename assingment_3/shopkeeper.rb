@@ -1,14 +1,15 @@
 require_relative "product"
 
 
-class Shopkeeper < Product
+class Shopkeeper
 
   def delete_product(product_id)
-    i = self.get_index_from_id(product_id.to_s)
+    i = Product.get_index_from_id(product_id.to_s)
     if i.nil?
       puts "Invalid Product Id"
     else
       CsvOperations.delete_line_by_index($ProductFile,i)
+      puts "Deleted"
     end
   end
 
@@ -20,7 +21,7 @@ class Shopkeeper < Product
   def edit_product
     puts "enter product id"
     product_id=gets.chomp.to_i.to_s
-    i = self.get_index_from_id(product_id)
+    i = Product.get_index_from_id(product_id)
     if i.nil?
       puts "Invalid Product Id"
     else

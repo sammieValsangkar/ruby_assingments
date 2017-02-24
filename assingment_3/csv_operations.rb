@@ -20,4 +20,14 @@ class CsvOperations
     products.delete_at(i)
     self.hash_to_csv(products,file_name)
   end
+  def self.hash_to_csv1(hash_name,file_name)
+    column_names = hash_name.keys
+    s=CSV.generate do |csv|
+      csv << column_names
+      hash_name.each do |x|
+        csv << x.values
+      end
+    end
+    File.write(file_name, s)
+  end
 end

@@ -5,7 +5,7 @@ class Product
 
   def self.get_last_id
     csv = CSV.read($ProductFile, :headers=>true)
-    return csv['id'].max.to_i
+    return csv['id'].map(&:to_i).max.to_i
   end
 
   def self.get_index_from_id(search_id)
@@ -22,9 +22,7 @@ class Product
   end
 
   def self.product_available?(arr)
-    p arr[0].class
-    i=get_index_from_id(arr[0].to_i)
-    p i
+
   end
 
   def self.find(str)

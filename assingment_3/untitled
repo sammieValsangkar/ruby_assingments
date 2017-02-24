@@ -1,0 +1,35 @@
+  def delete_product(product_id)
+    #csv = CSV.read($ProductFile)
+    #puts csv.delete(product_id)
+    #product_hash=CsvOperations.csv_to_hash_array($ProductFile)
+    #new_product_hash=Operations.delete_product_from_hash(product_hash,product_id)
+    #CsvOperations.hash_to_csv(new_product_hash,$ProductFile)
+    line_no = self.get_index_from_id(product_id)
+    if line_no.nil?
+      return
+    else
+      #Operations.delete_product_by_index(i)
+      CsvOperations.delete_line($Produ2ctFile,line_no)
+    end
+  end
+
+    def edit_product
+    puts "enter product id"
+    product_id=gets.chomp.to_i
+    arr_of_arrs = CSV.read($ProductFile)
+    arr_of_arrs.delete_at(product_id-1)
+    puts "Product Name :"
+    pname=gets.chomp
+    puts "Price :"
+    price=gets.chomp
+    puts "Qty :"
+    qty=gets.chomp
+    puts "Company"
+    company=gets.chomp
+    arr=[pname,price,qty,company]
+    arr_of_arrs.insert(product_id-1,arr)
+    CSV.open($ProductFile, "wb") do |csv|
+      arr_of_arrs.each { |row| csv << row}
+    end
+    #puts "editing"
+  end

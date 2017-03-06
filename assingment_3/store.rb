@@ -13,7 +13,7 @@ class Store
   def shopkeepers_dashboard
     shopkeeper =Shopkeeper.new()
     loop do
-      UserInteractions.show_shopkeepers_menu
+      UserInteraction.show_shopkeepers_menu
       shopkeeper_choice=gets.chomp.to_i
       case shopkeeper_choice
         when 1
@@ -37,7 +37,7 @@ class Store
   def users_dashboard
     user =  User.new()
     loop do
-      UserInteractions.show_users_menu
+      UserInteraction.show_users_menu
       users_choice=gets.chomp.to_i
       case users_choice
         when 1
@@ -53,7 +53,7 @@ class Store
   end
 
   def launch
-    UserInteractions.show_options
+    UserInteraction.show_options
     loop do
       choice=gets.chomp.to_i
       case choice

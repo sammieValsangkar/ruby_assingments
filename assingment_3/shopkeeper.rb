@@ -1,6 +1,4 @@
 require_relative "product"
-
-
 class Shopkeeper
 
   def delete_product(product_id)

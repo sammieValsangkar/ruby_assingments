@@ -1,5 +1,5 @@
-class UserInteractions
-  def self.getProductDetails
+class UserInteraction
+  def self.get_Product_Details
     arr=[]
     $ProductProperties.drop(1).each do | pr|
       print "Enter Product #{pr} :"
